@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="hoteldomain.xsl" type="text/xsl"?>
+<!-- <hotel xmlns:ns="http://www.example.com/stay" -->
+<!-- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="www.example.com/stay/lab4/stay hoteldomain.xsd" > -->
+
+<!-- <?xml-model href="hoteldomain.dtd" type="application/xml-dtd"?> -->
+
+
+
+<hotel>
+    <room id="101">
+        <type>Single</type>
+        <rate>75.00</rate>
+        <availability>Available</availability>
+        <beds>1</beds>
+    </room>
+    <room id="102">
+        <type>Double</type>
+        <rate>120.00</rate>
+        <availability>Occupied</availability>
+        <beds>2</beds>
+    </room>
+    <guest id="G001">
+        <name>John Doe</name>
+        <email>john.doe@example.com</email>
+        <phone>555-1234</phone>/
+        <location>Delhi</location>
+        <!-- <checkin>2024-08-01</checkin>
+        <checkout>2024-08-07</checkout> -->
+        <room_id>101</room_id>
+        <id_card>aadhar</id_card>
+    </guest>
+    <guest id="G002">
+        <name>Jane Smith</name>
+        <email>jane.smith@example.com</email>
+        <phone>555-5678</phone>
+        <!-- <checkin>2024-08-05</checkin>
+        <checkout>2024-08-10</checkout> -->
+        <location>Agra</location>
+        <room_id>102</room_id>
+        <id_card>aadhar</id_card>
+    </guest>
+    <booking id="B001">
+        <guest_id>G001</guest_id>
+        <room_id>101</room_id>
+        <checkin>2024-08-15</checkin>
+        <checkout>2024-08-20</checkout>
+        <status>Confirmed</status>
+        
+    </booking>
+    <!-- <booking id="B002">
+        <guest_id>G002</guest_id>
+        <room_id>102</room_id>
+        <checkin>2024-08-15</checkin>
+        <checkout>2024-08-20</checkout>
+        <status>Confirmed</status>
+        
+    </booking> -->
+    <staff id="S001">
+        <staff_id>S001</staff_id>
+        <room_id>111</room_id> 
+        <name>Arya</name>
+        <position>Receptionist</position> 
+    </staff>
+    <service id="SE01">
+        <staff_id>S001</staff_id>
+        <service_name>Arya</service_name>
+        <description>111</description> 
+        <price>550</price> 
+    </service>
+    <payment id="P001">
+        <booking_id>S001</booking_id>
+        <amount>10000</amount>
+        <paymentdate>2024-08-20</paymentdate> 
+        <paymentmethod>creditcard</paymentmethod> 
+    </payment>
+    <facility id="P001">
+        <name>swimming pool</name>
+        <description>swimming pool</description> 
+        <availabilty>available</availabilty> 
+    </facility>
+    <feedback id="F001">
+        <guest_id>G001</guest_id>
+        <rating>5</rating> 
+        <comments>good</comments> 
+        <fdate>2024-08-20</fdate>
+    </feedback>
+</hotel>

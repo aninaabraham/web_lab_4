@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT hotel (room+ ,guest+ ,booking+ ,staff+)>
+<!ELEMENT room (type,rate,availability,beds)>
+<!ATTLIST room id CDATA #REQUIRED>
+
+
+
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT rate (#PCDATA)>
+<!ELEMENT availability (#PCDATA)>
+<!ELEMENT beds (#PCDATA)>
+<!ELEMENT guest (name,email,phone,location,room_id,id_card)>
+<!ATTLIST guest id  CDATA #REQUIRED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT location (#PCDATA)>
+
+<!ELEMENT room_id (#PCDATA)>
+<!ELEMENT id_card (#PCDATA)>
+<!ELEMENT booking (guest_id,room_id,checkin,checkout,status)>
+<!ATTLIST booking id CDATA #REQUIRED>
+<!ELEMENT guest_id (#PCDATA)>
+<!ELEMENT checkin (#PCDATA)>
+<!ELEMENT checkout (#PCDATA)>
+<!ELEMENT status (#PCDATA)>
+<!ELEMENT staff (staff_id,room_id,name,position)>
+<!ATTLIST staff id CDATA #REQUIRED>
+<!ELEMENT staff_id (#PCDATA)>
+<!ELEMENT position (#PCDATA)>
+<!ELEMENT service (staff_id,service_name,description,price)>
+<!ATTLIST service id CDATA #REQUIRED>
+<!ELEMENT staff_id (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT payment (booking_id,amount,paymentdate,paymentmethod)>
+<!ATTLIST payment id CDATA #REQUIRED>
+<!ELEMENT amount (#PCDATA)>
+<!ELEMENT paymentdate (#PCDATA)>
+<!ELEMENT paymentmethod (#PCDATA)>
+<!ELEMENT facility (name,description,availabilty)>
+<!ATTLIST facility id CDATA #REQUIRED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT availabilty (#PCDATA)>
+<!ELEMENT feedback (guest_id,rating,comments,fdate)>
+<!ATTLIST feedback id CDATA #REQUIRED>
+<!ELEMENT guest_id (#PCDATA)>
+<!ELEMENT rating (#PCDATA)>
+<!ELEMENT comments (#PCDATA)>
+<!ELEMENT fdate (#PCDATA)>
