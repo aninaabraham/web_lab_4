@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.example.com/stay"
+           targetNamespace="http://www.example.com/stay"
+           xmlns:stay="http://www.example.com/stay"
+           elementFormDefault="qualified">
+
+    <!-- Define the hotel element and its structure -->
+    <xs:element name="hotel">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="room" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="type" type="xs:string"/>
+                            <xs:element name="rate" type="xs:decimal"/>
+                            <xs:element name="availability" type="xs:string"/>
+                            <xs:element name="beds" type="xs:int"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="guest" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="email" type="xs:string"/>
+                            <xs:element name="phone" type="xs:string"/>
+                            <xs:element name="location" type="xs:date"/>
+                            <xs:element name="room_id" type="xs:string"/>
+                            <xs:element name="id_card" type="stay:id_card_type"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="booking">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="guest_id" type="xs:string"/>
+                            <xs:element name="room_id" type="xs:string"/>
+                            <xs:element name="checkin" type="xs:date"/>
+                            <xs:element name="checkout" type="xs:date"/>
+                            <xs:element name="status" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="staff" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="staff_id" type="xs:string"/>
+                            <xs:element name="room_id" type="xs:string"/>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="position" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="service" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="staff_id" type="xs:string"/>
+                            <xs:element name="service_name" type="xs:string"/>
+                            <xs:element name="description" type="xs:string"/>
+                            <xs:element name="price" type="xs:decimal"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="payment" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="booking_id" type="xs:string"/>
+                            <xs:element name="amount" type="xs:decimal"/>
+                            <xs:element name="paymentdate" type="xs:date"/>
+                            <xs:element name="paymentmethod" type="stay:paymentmethod_type"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="facility" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="description" type="xs:string"/>
+                            <xs:element name="availability" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="feedback" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="guest_id" type="xs:string"/>
+                            <xs:element name="rating" type="xs:string"/>
+                            <xs:element name="comments" type="xs:string"/>
+                            <xs:element name="fdate" type="xs:date"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Define the id_card type as a simple type -->
+    <xs:simpleType name="id_card_type">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="aadhar"/>
+            <xs:enumeration value="pan_card"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="paymentmethod_type">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="creditcard"/>
+            <xs:enumeration value="online_payment"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
